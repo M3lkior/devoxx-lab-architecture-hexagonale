@@ -1,10 +1,16 @@
 package devoxx.lab.hexagonalarchitecture.courtage.domain.service;
 
+import devoxx.lab.hexagonalarchitecture.courtage.domain.exception.PortefeuilleDejaExistantException;
+import devoxx.lab.hexagonalarchitecture.courtage.domain.exception.PortefeuilleNonGereException;
 import devoxx.lab.hexagonalarchitecture.courtage.domain.metier.Portefeuille;
+
+import java.math.BigDecimal;
 
 public interface CourtageService {
 
-	Portefeuille creerPortefeuille(String idPortefeuille);
+	Portefeuille creerPortefeuille(String idPortefeuille) throws PortefeuilleDejaExistantException;
 
 	boolean existe(String idPortefeuille);
+
+	BigDecimal recupererValeur(String idPortefeuille) throws PortefeuilleNonGereException;
 }
